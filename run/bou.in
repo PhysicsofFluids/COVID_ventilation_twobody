@@ -1,0 +1,24 @@
+!---------- Grid & time scheme --------------!
+N1      N2        N3        NSST(>1=RK,else AB)
+65      65       65      3
+!---------- Simulation time & step --------------!
+NTST      TRESTART   TPIN   TFRAME    TMAX        IDTV(0=fix,1=var)
+50     10.0       0.1d0  0.1d0     1d6     1
+!---------- Restart flag --------------!
+NREAD     IRESET    PREAD
+0         1         0
+!---------- Geometry --------------!
+ALX3D     REXT1     REXT2     ISTR3      STR3       Lmax
+1.0d0     1.0d0    1.0d0      1          8.d0       1
+!---------- Control parameters --------------!
+Ra      Pr       Lambdaco2     Lambdavap     InOutVel         InOutzlen      InZLevel      OutZLevel     kernel_width_space    kernel_width_time
+1.38d6 0.71     1.21          0.88          7.87d-2          0.1d0          0.5d0         0.5d0         0.0133                0.235
+!---------- CFL --------------!
+DTMAX(dt var.)   RESID     CFLMAX    DT(dt fix)   CFLLIM(dt fix)
+1d-2             1d-2      1.0d0     1.0d-2       5.0d0
+!---------- Movie details --------------!
+mov_zcut_k
+10
+!---------- Body details ---------------!
+obj_filename1        SCLF    X-position    obj_filename2     SCLF   X-position
+sittingwoman03.obj   0.4      0.4       sittingman01.obj    0.4      0.8
